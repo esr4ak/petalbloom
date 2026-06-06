@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal &amp; Bloom — Stage 5: Modern Layout</title>
+    <meta name="description" content="Stage 5 — CSS Grid powered modern responsive layout.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-grid">
+
+    <header class="site-header">
+        <h1><i class="fas fa-seedling"></i> Petal &amp; Bloom</h1>
+        <p class="tagline"><em>Where Every Petal Tells a Story</em></p>
+        <nav class="main-nav">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Landing</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#bouquets"><i class="fas fa-spa"></i> Bouquets</a>
+            <a href="#hours"><i class="fas fa-clock"></i> Hours</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h2>Welcome to<br>Petal &amp; Bloom</h2>
+                <p>Your premier destination for handcrafted floral arrangements. We bring nature's beauty to your doorstep with fresh, locally sourced flowers for every occasion.</p>
+                <a href="#bouquets" class="cta-btn"><i class="fas fa-spa"></i> Explore Bouquets</a>
+            </div>
+            <div class="hero-image">
+                <img src="../images/hero.png" alt="Petal and Bloom flower shop">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+        <h2><i class="fas fa-leaf"></i> About Us</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Founded in 2020, Petal &amp; Bloom has been serving the Istanbul community with passion, creativity, and an unwavering love for flowers. What started as a small corner shop near Yıldız Teknik Üniversitesi's Davutpaşa Campus has grown into one of the neighborhood's most beloved floral destinations.</p>
+                <p>Our team of expert florists brings together years of experience in both traditional Turkish floral art and contemporary European design. We source our flowers fresh daily from local growers and the renowned Istanbul flower market, ensuring every arrangement is vibrant, fragrant, and long-lasting.</p>
+                <p>At Petal &amp; Bloom, we believe that flowers are more than decoration — they are a language. A single rose can say "I love you." A bright sunflower can say "I'm thinking of you." We are here to help you find the right words, wrapped in petals.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Years</span></div>
+                <div class="stat"><span class="stat-number">10K+</span><span class="stat-label">Delivered</span></div>
+                <div class="stat"><span class="stat-number">98%</span><span class="stat-label">Happy</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bouquets -->
+    <section id="bouquets" class="bouquets-section">
+        <h2><i class="fas fa-spa"></i> Our Bouquets</h2>
+        <p class="section-subtitle">Browse our handpicked collection of premium floral arrangements</p>
+        <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-image"><img src="../images/roses.png" alt="Romantic Roses bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-heart"></i> Romantic Roses</h3>
+                    <p>Red and soft pink roses in signature kraft paper. Perfect for expressing love and admiration.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $45.00</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image"><img src="../images/sunflowers.png" alt="Sunflower Delight bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-sun"></i> Sunflower Delight</h3>
+                    <p>Cheerful sunflowers with wax flowers and eucalyptus. A guaranteed mood lifter.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $35.00</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image"><img src="../images/lavender.png" alt="Lavender Dreams bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-moon"></i> Lavender Dreams</h3>
+                    <p>Purple roses and fresh lavender sprigs. A calming, aromatic arrangement.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $40.00</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image"><img src="../images/wildflowers.png" alt="Wild Meadow bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-tree"></i> Wild Meadow</h3>
+                    <p>Daisies, cornflowers and poppies in rustic kraft. Brings nature indoors.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $30.00</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image"><img src="../images/orchid.png" alt="Orchid Elegance arrangement"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-gem"></i> Orchid Elegance</h3>
+                    <p>Phalaenopsis orchids with lavender in kraft paper. A refined, long-lasting gift.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $55.00</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Price List + Working Hours -->
+    <section class="info-section">
+        <div class="info-grid">
+
+            <div class="info-block" id="prices">
+                <h2><i class="fas fa-list"></i> Price List</h2>
+                <table>
+                    <thead>
+                        <tr><th>Product</th><th>Size</th><th>Price</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Romantic Roses</td><td>12 stems</td><td>$45</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                        <tr><td>Sunflower Delight</td><td>8 stems</td><td>$35</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                        <tr><td>Lavender Dreams</td><td>10 stems</td><td>$40</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                        <tr><td>Wild Meadow</td><td>Mixed bunch</td><td>$30</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                        <tr><td>Orchid Elegance</td><td>Single</td><td>$55</td><td><i class="fas fa-circle status-dot yellow"></i> Limited</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-block" id="hours">
+                <h2><i class="fas fa-clock"></i> Working Hours</h2>
+                <table>
+                    <thead>
+                        <tr><th>Day</th><th>Open</th><th>Close</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Monday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Tuesday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Wednesday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Thursday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Friday</td><td>08:00</td><td>20:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Saturday</td><td>09:00</td><td>18:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                        <tr><td>Sunday</td><td>10:00</td><td>16:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services-section">
+        <h2><i class="fas fa-concierge-bell"></i> Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item"><i class="fas fa-paint-brush"></i><h3>Custom Design</h3><p>Personalized bouquets tailored to your vision</p></div>
+            <div class="service-item"><i class="fas fa-ring"></i><h3>Weddings</h3><p>Complete floral arrangements for your special day</p></div>
+            <div class="service-item"><i class="fas fa-glass-cheers"></i><h3>Events</h3><p>Professional event decoration services</p></div>
+            <div class="service-item"><i class="fas fa-truck"></i><h3>Same-Day Delivery</h3><p>Order before 2 PM for same-day delivery</p></div>
+            <div class="service-item"><i class="fas fa-redo"></i><h3>Subscriptions</h3><p>Weekly or monthly fresh flower deliveries</p></div>
+            <div class="service-item"><i class="fas fa-gift"></i><h3>Corporate Gifts</h3><p>Premium gift packages for businesses</p></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+        <h2><i class="fas fa-quote-left"></i> Customer Reviews</h2>
+        <div class="testimonials-grid">
+            <blockquote>
+                <p>"The most beautiful roses I have ever received! Petal &amp; Bloom never disappoints."</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <cite>— Sarah M.</cite>
+            </blockquote>
+            <blockquote>
+                <p>"Their wedding arrangements made our special day truly magical. Highly recommended!"</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <cite>— David &amp; Emily R.</cite>
+            </blockquote>
+            <blockquote>
+                <p>"The sunflower bouquet brightened up our entire office. We now have a weekly subscription!"</p>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                <cite>— TechVista Inc.</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><h3>Address</h3><p>Yıldız Teknik Üniversitesi<br>Davutpaşa Kampüsü<br>Esenler, İstanbul</p></div>
+            <div class="contact-item"><i class="fas fa-phone"></i><h3>Phone</h3><p>+90 (212) 555-0142</p></div>
+            <div class="contact-item"><i class="fas fa-at"></i><h3>Email</h3><p>hello@petalandbloom.com</p></div>
+            <div class="contact-item"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>@petalandbloom</p></div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Petal &amp; Bloom — All Rights Reserved</p>
+        <p class="footer-team">IST4130 Web Programming &nbsp;|&nbsp; Esra Ak (23023009) &nbsp;&middot;&nbsp; Orhan Koca (22023070) &nbsp;&middot;&nbsp; Hüseyin Barış Akçay (22023060)</p>
+        <p class="footer-uni"><i class="fas fa-university"></i> Yıldız Teknik Üniversitesi, Davutpaşa Kampüsü &nbsp;|&nbsp; Instructor: Erhan Cene</p>
+        <p style="margin-top:12px;"><a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Landing Page</a></p>
+    </footer>
+
+</div>
+</body>
+</html>

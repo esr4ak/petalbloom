@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal &amp; Bloom — Stage 6: Interaction &amp; Dynamism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── Cart Overlay ── -->
+<div id="cart-overlay"></div>
+
+<!-- ── Cart Sidebar ── -->
+<div id="cart-sidebar">
+    <div class="cart-header">
+        <h3><i class="fas fa-shopping-basket"></i> Your Cart</h3>
+        <button id="cart-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cart-items">
+        <p class="cart-empty"><i class="fas fa-shopping-basket"></i>Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Total:</span>
+            <span id="cart-total-price">$0.00</span>
+        </div>
+        <button id="clear-cart-btn"><i class="fas fa-trash"></i> Clear Cart</button>
+        <button id="checkout-btn"><i class="fas fa-credit-card"></i> Proceed to Checkout</button>
+    </div>
+</div>
+
+<!-- ── Checkout Modal ── -->
+<div id="checkout-modal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h2><i class="fas fa-shopping-bag"></i> Complete Your Order</h2>
+            <button id="modal-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <!-- Cart summary shown inside modal -->
+            <div class="modal-cart-summary" id="modal-cart-summary">
+                <h3><i class="fas fa-list"></i> Order Summary</h3>
+                <div id="summary-items"></div>
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span id="summary-total-amount">$0.00</span>
+                </div>
+            </div>
+            <!-- Checkout form -->
+            <form id="checkout-form" novalidate>
+                <div class="modal-form-grid">
+                    <div class="modal-form-group">
+                        <label for="co-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="co-name" name="full-name" required minlength="2" maxlength="50" placeholder="John Doe">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="co-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="co-email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="co-phone"><i class="fas fa-phone"></i> Phone</label>
+                        <input type="tel" id="co-phone" name="phone" placeholder="+90 (555) 123-4567">
+                    </div>
+                    <div class="modal-form-group">
+                        <label for="co-date"><i class="fas fa-truck"></i> Delivery Date</label>
+                        <input type="date" id="co-date" name="delivery-date">
+                    </div>
+                    <div class="modal-form-group full">
+                        <label for="co-address"><i class="fas fa-map-marker-alt"></i> Delivery Address</label>
+                        <input type="text" id="co-address" name="address" required placeholder="Street, District, City">
+                    </div>
+                    <div class="modal-form-group full">
+                        <label for="co-occasion"><i class="fas fa-calendar-alt"></i> Occasion</label>
+                        <select id="co-occasion" name="occasion">
+                            <option value="birthday">Birthday</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="sympathy">Sympathy</option>
+                            <option value="just-because">Just Because</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="modal-form-group full">
+                        <label for="co-message"><i class="fas fa-pencil-alt"></i> Card Message (optional)</label>
+                        <textarea id="co-message" name="message" rows="3" maxlength="250" placeholder="Write a personal message for the card..."></textarea>
+                    </div>
+                    <div class="modal-form-group full">
+                        <label style="display:flex;align-items:center;gap:8px;font-weight:400;">
+                            <input type="checkbox" id="co-newsletter" name="newsletter" value="yes" style="width:16px;height:16px;accent-color:#1a6370;">
+                            <i class="fas fa-bell" style="color:#1e8a9a;"></i> Subscribe to our newsletter for weekly deals
+                        </label>
+                    </div>
+                    <button type="submit" class="modal-submit-btn"><i class="fas fa-paper-plane"></i> Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ── Toast ── -->
+<div id="toast"></div>
+
+<!-- ── Page ── -->
+<div class="page-grid">
+
+    <header class="site-header">
+        <div class="header-content">
+            <h1><i class="fas fa-seedling"></i> Petal &amp; Bloom</h1>
+            <p class="tagline"><em>Where Every Petal Tells a Story</em></p>
+            <nav class="main-nav">
+                <a href="../index.html"><i class="fas fa-arrow-left"></i> Landing</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#bouquets"><i class="fas fa-spa"></i> Bouquets</a>
+                <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
+                <a href="#hours"><i class="fas fa-clock"></i> Hours</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <button id="cart-toggle" class="cart-toggle-btn">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span id="cart-count">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h2>Welcome to<br>Petal &amp; Bloom</h2>
+                <p>Your premier destination for handcrafted floral arrangements. We bring nature's beauty to your doorstep with fresh, locally sourced flowers for every occasion.</p>
+                <a href="#bouquets" class="cta-btn"><i class="fas fa-spa"></i> Explore Bouquets</a>
+            </div>
+            <div class="hero-image">
+                <img src="../images/hero.png" alt="Petal and Bloom flower shop">
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+        <h2><i class="fas fa-leaf"></i> About Us</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Founded in 2020, Petal &amp; Bloom has been serving the Istanbul community with passion, creativity, and an unwavering love for flowers. What started as a small corner shop near Yıldız Teknik Üniversitesi's Davutpaşa Campus has grown into one of the neighborhood's most beloved floral destinations.</p>
+                <p>Our team of expert florists brings together years of experience in both traditional Turkish floral art and contemporary European design. We source our flowers fresh daily from local growers and the renowned Istanbul flower market, ensuring every arrangement is vibrant, fragrant, and long-lasting.</p>
+                <p>At Petal &amp; Bloom, we believe that flowers are more than decoration — they are a language. A single rose can say "I love you." A bright sunflower can say "I'm thinking of you." A carefully arranged wild meadow bouquet can say "You mean the world to me." We are here to help you find the right words, wrapped in petals.</p>
+                <p>Whether you are celebrating a birthday, planning a wedding, decorating a corporate event, or simply wanting to brighten someone's day, we have the perfect bouquet waiting for you. Every arrangement is handcrafted with care, wrapped beautifully in our signature kraft paper, and delivered with a smile.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat"><span class="stat-number">5+</span><span class="stat-label">Years</span></div>
+                <div class="stat"><span class="stat-number">10K+</span><span class="stat-label">Delivered</span></div>
+                <div class="stat"><span class="stat-number">98%</span><span class="stat-label">Happy</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bouquets -->
+    <section id="bouquets" class="bouquets-section">
+        <h2><i class="fas fa-spa"></i> Our Bouquets</h2>
+        <p class="section-subtitle">Select a quantity and add to cart — then proceed to checkout</p>
+        <div class="products-grid">
+
+            <div class="product-card" data-name="Romantic Roses" data-price="45">
+                <div class="product-image"><img src="../images/roses.png" alt="Romantic Roses bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-heart"></i> Romantic Roses</h3>
+                    <p>Red and soft pink roses in signature kraft paper. Perfect for expressing love and admiration.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $45.00</span>
+                    <div class="product-qty-controls">
+                        <button class="qty-btn-product" data-action="minus">−</button>
+                        <span class="qty-display-product">1</span>
+                        <button class="qty-btn-product" data-action="plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Sunflower Delight" data-price="35">
+                <div class="product-image"><img src="../images/sunflowers.png" alt="Sunflower bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-sun"></i> Sunflower Delight</h3>
+                    <p>Cheerful sunflowers with wax flowers and eucalyptus. A guaranteed mood lifter.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $35.00</span>
+                    <div class="product-qty-controls">
+                        <button class="qty-btn-product" data-action="minus">−</button>
+                        <span class="qty-display-product">1</span>
+                        <button class="qty-btn-product" data-action="plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Lavender Dreams" data-price="40">
+                <div class="product-image"><img src="../images/lavender.png" alt="Lavender bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-moon"></i> Lavender Dreams</h3>
+                    <p>Purple roses and fresh lavender sprigs. A calming, aromatic arrangement.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $40.00</span>
+                    <div class="product-qty-controls">
+                        <button class="qty-btn-product" data-action="minus">−</button>
+                        <span class="qty-display-product">1</span>
+                        <button class="qty-btn-product" data-action="plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Wild Meadow" data-price="30">
+                <div class="product-image"><img src="../images/wildflowers.png" alt="Wildflower bouquet"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-tree"></i> Wild Meadow</h3>
+                    <p>Daisies, cornflowers and poppies in rustic kraft. Brings nature indoors.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $30.00</span>
+                    <div class="product-qty-controls">
+                        <button class="qty-btn-product" data-action="minus">−</button>
+                        <span class="qty-display-product">1</span>
+                        <button class="qty-btn-product" data-action="plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-name="Orchid Elegance" data-price="55">
+                <div class="product-image"><img src="../images/orchid.png" alt="Orchid arrangement"></div>
+                <div class="product-info">
+                    <h3><i class="fas fa-gem"></i> Orchid Elegance</h3>
+                    <p>Phalaenopsis orchids with lavender in kraft paper. A refined, long-lasting gift.</p>
+                    <span class="price"><i class="fas fa-tag"></i> $55.00</span>
+                    <div class="product-qty-controls">
+                        <button class="qty-btn-product" data-action="minus">−</button>
+                        <span class="qty-display-product">1</span>
+                        <button class="qty-btn-product" data-action="plus">+</button>
+                    </div>
+                    <button class="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Info: Price List + Hours -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-block" id="prices">
+                <h2><i class="fas fa-list"></i> Price List</h2>
+                <table><thead><tr><th>Product</th><th>Size</th><th>Price</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr><td>Romantic Roses</td><td>12 stems</td><td>$45</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                    <tr><td>Sunflower Delight</td><td>8 stems</td><td>$35</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                    <tr><td>Lavender Dreams</td><td>10 stems</td><td>$40</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                    <tr><td>Wild Meadow</td><td>Mixed bunch</td><td>$30</td><td><i class="fas fa-circle status-dot green"></i> In Stock</td></tr>
+                    <tr><td>Orchid Elegance</td><td>Single</td><td>$55</td><td><i class="fas fa-circle status-dot yellow"></i> Limited</td></tr>
+                </tbody></table>
+            </div>
+            <div class="info-block" id="hours">
+                <h2><i class="fas fa-clock"></i> Working Hours</h2>
+                <table><thead><tr><th>Day</th><th>Open</th><th>Close</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr><td>Monday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Tuesday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Wednesday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Thursday</td><td>08:00</td><td>19:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Friday</td><td>08:00</td><td>20:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Saturday</td><td>09:00</td><td>18:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                    <tr><td>Sunday</td><td>10:00</td><td>16:00</td><td><i class="fas fa-circle status-dot green"></i> Open</td></tr>
+                </tbody></table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="reviews-section">
+        <h2><i class="fas fa-star"></i> Customer Reviews</h2>
+        <div class="reviews-grid">
+
+            <!-- Existing reviews list — new ones added here by JS -->
+            <div id="reviews-list" class="reviews-list">
+                <blockquote>
+                    <p>"The most beautiful roses I have ever received! Petal &amp; Bloom never disappoints."</p>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <cite>— Sarah M.</cite>
+                </blockquote>
+                <blockquote>
+                    <p>"Their wedding arrangements made our special day truly magical. Highly recommended!"</p>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <cite>— David &amp; Emily R.</cite>
+                </blockquote>
+                <blockquote>
+                    <p>"The sunflower bouquet brightened up our entire office. We now have a weekly subscription!"</p>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <cite>— TechVista Inc.</cite>
+                </blockquote>
+            </div>
+
+            <!-- Write a review form -->
+            <div class="review-form-card">
+                <h3><i class="fas fa-pencil-alt"></i> Write a Review</h3>
+
+                <div class="review-field">
+                    <label for="review-name"><i class="fas fa-user"></i> Your Name</label>
+                    <input type="text" id="review-name" placeholder="Jane Doe" maxlength="50">
+                </div>
+
+                <div class="review-field">
+                    <label><i class="fas fa-star"></i> Rating</label>
+                    <div class="star-rating" id="star-rating">
+                        <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">&#9733;</label>
+                        <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">&#9733;</label>
+                        <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">&#9733;</label>
+                        <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">&#9733;</label>
+                        <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">&#9733;</label>
+                    </div>
+                </div>
+
+                <div class="review-field">
+                    <label for="review-product"><i class="fas fa-spa"></i> Bouquet</label>
+                    <select id="review-product">
+                        <option value="">-- Select a bouquet --</option>
+                        <option value="Romantic Roses">Romantic Roses</option>
+                        <option value="Sunflower Delight">Sunflower Delight</option>
+                        <option value="Lavender Dreams">Lavender Dreams</option>
+                        <option value="Wild Meadow">Wild Meadow</option>
+                        <option value="Orchid Elegance">Orchid Elegance</option>
+                    </select>
+                </div>
+
+                <div class="review-field">
+                    <label for="review-text"><i class="fas fa-comment"></i> Your Review</label>
+                    <textarea id="review-text" rows="4" maxlength="300" placeholder="Share your experience..."></textarea>
+                </div>
+
+                <button id="submit-review-btn" class="submit-review-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services-section">
+        <h2><i class="fas fa-concierge-bell"></i> Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item"><i class="fas fa-paint-brush"></i><h3>Custom Design</h3><p>Personalized bouquets tailored to your vision</p></div>
+            <div class="service-item"><i class="fas fa-ring"></i><h3>Weddings</h3><p>Complete floral arrangements for your special day</p></div>
+            <div class="service-item"><i class="fas fa-glass-cheers"></i><h3>Events</h3><p>Professional event decoration services</p></div>
+            <div class="service-item"><i class="fas fa-truck"></i><h3>Same-Day Delivery</h3><p>Order before 2 PM for same-day delivery</p></div>
+            <div class="service-item"><i class="fas fa-redo"></i><h3>Subscriptions</h3><p>Weekly or monthly fresh flower deliveries</p></div>
+            <div class="service-item"><i class="fas fa-gift"></i><h3>Corporate Gifts</h3><p>Premium gift packages for businesses</p></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><h3>Address</h3><p>Yıldız Teknik Üniversitesi<br>Davutpaşa Kampüsü<br>Esenler, İstanbul</p></div>
+            <div class="contact-item"><i class="fas fa-phone"></i><h3>Phone</h3><p>+90 (212) 555-0142</p></div>
+            <div class="contact-item"><i class="fas fa-at"></i><h3>Email</h3><p>hello@petalandbloom.com</p></div>
+            <div class="contact-item"><i class="fab fa-instagram"></i><h3>Instagram</h3><p>@petalandbloom</p></div>
+        </div>
+        <div class="team-info">
+            <h3><i class="fas fa-users"></i> Project Team — IST4130 Web Programming</h3>
+            <div class="team-grid">
+                <div class="team-member"><i class="fas fa-user-graduate"></i><p><strong>Esra Ak</strong></p><p class="student-id">23023009 — Group Leader</p></div>
+                <div class="team-member"><i class="fas fa-user-graduate"></i><p><strong>Orhan Koca</strong></p><p class="student-id">22023070</p></div>
+                <div class="team-member"><i class="fas fa-user-graduate"></i><p><strong>Hüseyin Barış Akçay</strong></p><p class="student-id">22023060</p></div>
+            </div>
+            <p class="university-info"><i class="fas fa-university"></i> Yıldız Teknik Üniversitesi — Davutpaşa Kampüsü &nbsp;|&nbsp; Instructor: Erhan Cene</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Petal &amp; Bloom — All Rights Reserved</p>
+        <p class="footer-team">IST4130 Web Programming — Group 2 &nbsp;|&nbsp; Esra Ak (23023009) &nbsp;&middot;&nbsp; Orhan Koca (22023070) &nbsp;&middot;&nbsp; Hüseyin Barış Akçay (22023060)</p>
+        <p class="footer-uni"><i class="fas fa-university"></i> Yıldız Teknik Üniversitesi, Davutpaşa Kampüsü &nbsp;|&nbsp; Instructor: Erhan Cene</p>
+        <p style="margin-top:12px;"><a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Landing Page</a></p>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

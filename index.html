@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petal & Bloom — IST4130 Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f9f9;
+            color: #1c3c40;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #155e63;
+            color: #fff;
+            text-align: center;
+            padding: 48px 24px 36px;
+            border-bottom: 4px solid #1eb8c0;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            color: #a0d4d7;
+            font-style: italic;
+        }
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            flex: 1;
+        }
+
+        /* ── Group Info ── */
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1eb8c0;
+            margin-bottom: 12px;
+        }
+
+        .group-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-bottom: 48px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #c8e6e8;
+        }
+
+        .group-table th {
+            background: #155e63;
+            color: #fff;
+            text-align: left;
+            padding: 11px 16px;
+            font-weight: 500;
+            font-size: 0.82rem;
+        }
+
+        .group-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #dff0f1;
+            color: #1c3c40;
+        }
+
+        .group-table tr:last-child td { border-bottom: none; }
+        .group-table tr:nth-child(even) td { background: #f4f9f9; }
+
+        .tag {
+            display: inline-block;
+            background: #d0f0f2;
+            color: #0e5055;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 6px;
+            margin-left: 6px;
+        }
+
+        /* ── Stage Links ── */
+        .stages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+
+        .stage-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            background: #fff;
+            border: 1px solid #c8e6e8;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #1c3c40;
+            transition: all 0.2s;
+        }
+
+        .stage-link:hover {
+            background: #e8f6f7;
+            border-color: #1eb8c0;
+            transform: translateX(4px);
+        }
+
+        .stage-num {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #fff;
+            background: #155e63;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .stage-info strong {
+            display: block;
+            font-size: 0.92rem;
+            margin-bottom: 2px;
+        }
+
+        .stage-info span {
+            font-size: 0.78rem;
+            color: #4a8a8e;
+        }
+
+        .stage-link.deploy .stage-num { background: #0e5055; }
+
+        .arrow {
+            margin-left: auto;
+            color: #1eb8c0;
+            font-size: 0.9rem;
+        }
+
+        /* ── Course info ── */
+        .course-info {
+            font-size: 0.82rem;
+            color: #4a8a8e;
+            line-height: 1.9;
+            border-top: 1px solid #c8e6e8;
+            padding-top: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.78rem;
+            color: #6aabaf;
+            border-top: 1px solid #c8e6e8;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.8rem; }
+            main { padding: 32px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Petal &amp; Bloom</h1>
+    <p>A florist &amp; flower shop — IST4130 Web Programming Project</p>
+</header>
+
+<main>
+
+    <p class="section-label">Group Members</p>
+    <table class="group-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Esra Ak</td>
+                <td>23023009</td>
+            </tr>
+            <tr>
+                <td>Orhan Koca</td>
+                <td>22023070</td>
+            </tr>
+            <tr>
+                <td>Hüseyin Barış Akçay</td>
+                <td>22023060</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="section-label">Project Stages</p>
+    <div class="stages">
+
+        <a href="stage2/index.html" class="stage-link">
+            <div class="stage-num">2</div>
+            <div class="stage-info">
+                <strong>HTML Skeleton</strong>
+                <span>Pure HTML only — tables, images, no CSS</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="stage3/index.html" class="stage-link">
+            <div class="stage-num">3</div>
+            <div class="stage-info">
+                <strong>Colors &amp; Typography</strong>
+                <span>Google Fonts + FontAwesome — no margin or padding</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="stage4/index.html" class="stage-link">
+            <div class="stage-num">4</div>
+            <div class="stage-info">
+                <strong>Spacious Design</strong>
+                <span>Box Model — margin, padding, border applied</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="stage5/index.html" class="stage-link">
+            <div class="stage-num">5</div>
+            <div class="stage-info">
+                <strong>Modern Layout</strong>
+                <span>CSS Grid — responsive multi-column structure</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="stage6/index.html" class="stage-link">
+            <div class="stage-num">6</div>
+            <div class="stage-info">
+                <strong>Interaction &amp; Dynamism</strong>
+                <span>JavaScript &amp; DOM — shopping cart, checkout, reviews</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+        <a href="#" class="stage-link deploy">
+            <div class="stage-num">7</div>
+            <div class="stage-info">
+                <strong>Deployment</strong>
+                <span>GitHub Pages — live site</span>
+            </div>
+            <span class="arrow">→</span>
+        </a>
+
+    </div>
+
+    <div class="course-info">
+        <strong>Course:</strong> IST4130 — Web Programming &nbsp;&nbsp;
+        <strong>Instructor:</strong> Erhan Cene<br>
+        <strong>University:</strong> Yıldız Teknik Üniversitesi, Davutpaşa Kampüsü<br>
+        <strong>Business type:</strong> Florist &amp; Flower Shop
+    </div>
+
+</main>
+
+<footer>
+    &copy; 2026 Petal &amp; Bloom
+</footer>
+
+</body>
+</html>

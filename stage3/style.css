@@ -1,0 +1,244 @@
+/* =============================================
+   STAGE 3 — Colors & Typography
+   ✅ Google Fonts: Playfair Display + Inter
+   ✅ FontAwesome icons
+   ✅ HEX, RGB, HSL, HSLA color formats
+   ⛔ NO margin property
+   ⛔ NO padding property
+   ============================================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(185, 30%, 96%);   /* HSL — teal tint */
+    color: rgb(28, 52, 58);                  /* RGB */
+    line-height: 1.8;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: hsl(185, 55%, 18%);              /* HSL */
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: #0f4f56;                         /* HEX */
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #1a6370;
+    border-bottom: 2px solid hsl(175, 50%, 48%); /* HSL */
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #1e7a88;
+}
+
+p {
+    font-size: 1rem;
+    color: rgb(38, 68, 74);                 /* RGB */
+}
+
+em {
+    font-family: 'Playfair Display', serif;
+    color: hsl(180, 35%, 45%);
+    font-size: 1.1rem;
+}
+
+strong {
+    color: #0f4f56;
+}
+
+a {
+    color: hsl(180, 45%, 38%);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: hsl(170, 55%, 44%);
+}
+
+nav {
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+nav a {
+    color: hsl(185, 50%, 28%);
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: hsl(170, 55%, 44%);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid hsl(185, 30%, 80%);
+}
+
+header {
+    background-color: hsla(185, 40%, 92%, 0.96); /* HSLA */
+    text-align: center;
+}
+
+#hero {
+    text-align: center;
+    background-color: hsl(185, 35%, 90%);
+}
+
+#hero img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(15, 79, 86, 0.15); /* RGBA */
+}
+
+section {
+    background-color: hsl(185, 25%, 97%);
+}
+
+#bouquets img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(15, 79, 86, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+}
+
+th {
+    background-color: hsl(185, 55%, 24%);
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-align: left;
+}
+
+td {
+    border-bottom: 1px solid hsl(185, 25%, 84%);
+    color: rgb(38, 68, 74);
+}
+
+tr:nth-child(even) {
+    background-color: hsl(185, 30%, 95%);
+}
+
+tr:hover {
+    background-color: hsl(175, 35%, 90%);
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1rem;
+    color: rgb(38, 68, 74);
+}
+
+li i {
+    color: hsl(170, 55%, 42%);
+}
+
+blockquote {
+    background-color: hsl(185, 30%, 93%);
+    border-left: 4px solid hsl(175, 55%, 44%);
+    font-style: italic;
+    color: hsl(185, 40%, 28%);
+}
+
+blockquote cite {
+    font-style: normal;
+    font-weight: 600;
+    color: hsl(185, 55%, 20%);
+    display: block;
+}
+
+.fa-star, .fa-star-half-alt {
+    color: #e0a020;
+    font-size: 0.85rem;
+}
+
+form {
+    font-family: 'Inter', sans-serif;
+}
+
+label {
+    font-weight: 500;
+    color: hsl(185, 40%, 28%);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: hsl(185, 40%, 18%);
+    background-color: #fff;
+    border: 1px solid hsl(185, 30%, 72%);
+    border-radius: 6px;
+    width: 100%;
+    max-width: 400px;
+}
+
+input[type="submit"] {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background-color: hsl(185, 55%, 26%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: hsl(175, 50%, 35%);
+}
+
+input[type="range"] {
+    width: 100%;
+    max-width: 400px;
+}
+
+#contact i {
+    color: hsl(170, 55%, 40%);
+}
+
+footer {
+    background-color: hsl(185, 55%, 14%);
+    color: hsl(175, 30%, 68%);
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: hsl(170, 55%, 52%);
+}
+
+footer a:hover {
+    color: hsl(160, 65%, 62%);
+}
+
+h2 i {
+    color: hsl(170, 55%, 44%);
+}
+
+nav i {
+    font-size: 0.85rem;
+}

@@ -1,0 +1,292 @@
+/* =============================================
+   STAGE 4 — Spacious Design (Box Model)
+   ✅ Builds on Stage 3 teal color palette
+   ✅ margin, padding, border NOW applied
+   ✅ position: sticky header
+   ✅ HSL / HSLA / RGB / HEX color formats
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(185, 30%, 96%);
+    color: hsl(185, 35%, 18%);
+    line-height: 1.8;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: hsl(185, 55%, 18%);
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: #0f4f56;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #1a6370;
+    border-bottom: 2px solid hsl(175, 50%, 48%);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #1e7a88;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 1rem;
+    color: rgb(38, 68, 74);
+    margin-bottom: 12px;
+}
+
+em {
+    font-family: 'Playfair Display', serif;
+    color: hsl(180, 35%, 45%);
+    font-size: 1.1rem;
+}
+
+strong { color: #0f4f56; }
+
+a {
+    color: hsl(180, 45%, 38%);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+a:hover { color: hsl(170, 55%, 44%); }
+
+/* ── Header sticky ── */
+header {
+    background-color: hsla(185, 40%, 92%, 0.98);
+    text-align: center;
+    padding: 36px 24px 22px;
+    border-bottom: 3px solid hsl(175, 50%, 48%);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 14px;
+    padding: 10px 0;
+}
+
+nav a {
+    color: hsl(185, 50%, 28%);
+    font-weight: 500;
+    margin: 0 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: hsl(185, 55%, 26%);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid hsl(185, 25%, 82%);
+    margin: 0;
+}
+
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px;
+}
+
+#hero {
+    text-align: center;
+    background-color: hsl(185, 35%, 90%);
+    max-width: 100%;
+    padding: 60px 32px;
+}
+
+#hero img {
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(15, 79, 86, 0.18);
+    margin-top: 24px;
+    border: 4px solid hsl(185, 30%, 80%);
+}
+
+#about {
+    border-left: 4px solid hsl(175, 50%, 48%);
+    padding-left: 32px;
+}
+
+#bouquets img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(15, 79, 86, 0.1);
+    margin-bottom: 16px;
+    border: 2px solid hsl(185, 30%, 88%);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid hsl(185, 25%, 82%);
+    margin-top: 16px;
+}
+
+th {
+    background-color: hsl(185, 55%, 24%);
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 20px;
+}
+
+td {
+    border-bottom: 1px solid hsl(185, 25%, 86%);
+    color: rgb(38, 68, 74);
+    padding: 12px 20px;
+}
+
+tr:nth-child(even) { background-color: hsl(185, 30%, 96%); }
+tr:hover { background-color: hsl(175, 35%, 92%); }
+
+ul { list-style: none; padding: 0; }
+
+li {
+    font-size: 1rem;
+    color: rgb(38, 68, 74);
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    border-left: 3px solid hsl(170, 55%, 44%);
+    background-color: #ffffff;
+    border-radius: 0 8px 8px 0;
+}
+
+li i { color: hsl(170, 55%, 42%); margin-right: 10px; }
+
+blockquote {
+    background-color: hsl(185, 30%, 93%);
+    border-left: 4px solid hsl(175, 55%, 44%);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: hsl(185, 40%, 28%);
+}
+
+blockquote cite {
+    font-style: normal;
+    font-weight: 600;
+    color: hsl(185, 55%, 20%);
+    display: block;
+    margin-top: 8px;
+}
+
+.fa-star, .fa-star-half-alt { color: #e0a020; font-size: 0.85rem; }
+
+#contact p { padding: 6px 0; }
+#contact i { color: hsl(170, 55%, 40%); margin-right: 8px; }
+
+footer {
+    background-color: hsl(185, 55%, 14%);
+    color: hsl(175, 30%, 68%);
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 32px 24px;
+    margin-top: 40px;
+    border-top: 3px solid hsl(175, 55%, 40%);
+}
+
+footer p { color: hsl(175, 25%, 65%); margin-bottom: 8px; }
+
+footer a {
+    color: hsl(170, 55%, 52%);
+    padding: 6px 16px;
+    border: 1px solid hsla(170, 55%, 52%, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+footer a:hover { color: #fff; background-color: hsla(170, 55%, 52%, 0.2); }
+
+h2 i { color: hsl(170, 55%, 44%); margin-right: 8px; }
+nav i { font-size: 0.85rem; }
+
+form { font-family: 'Inter', sans-serif; }
+
+label {
+    font-weight: 500;
+    color: hsl(185, 40%, 28%);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: hsl(185, 40%, 18%);
+    background: #fff;
+    border: 1px solid hsl(185, 30%, 72%);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    width: 100%;
+    max-width: 450px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: hsl(175, 55%, 44%);
+}
+
+textarea { resize: vertical; min-height: 80px; }
+
+input[type="range"] { width: 100%; max-width: 450px; margin-bottom: 8px; }
+input[type="radio"], input[type="checkbox"] { margin-right: 6px; }
+
+input[type="submit"] {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #fff;
+    background-color: hsl(185, 55%, 26%);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 12px;
+}
+
+input[type="submit"]:hover {
+    background-color: hsl(175, 50%, 35%);
+    transform: translateY(-2px);
+}
